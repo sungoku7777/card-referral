@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Picks — Credit Card Referrals</title>
+  <meta name="description" content="Handpicked credit card referral links. Sign up through these links and we both earn points.">
+
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&f[]=cabinet-grotesk@800,900&display=swap" rel="stylesheet">
+
+  <style>
+    :root, [data-theme="light"] {
+      --color-bg:             #f7f6f2;
+      --color-surface:        #f9f8f5;
+      --color-surface-2:      #ffffff;
+      --color-surface-offset: #f0ede8;
+      --color-divider:        #dcd9d5;
+      --color-border:         #d4d1ca;
+      --color-text:           #28251d;
+      --color-text-muted:     #7a7974;
+      --color-text-faint:     #bab9b4;
+      --color-primary:        #01696f;
+      --color-primary-hover:  #0c4e54;
+      --color-primary-highlight: #cedcd8;
+      --color-gold:           #d19900;
+      --color-biz:            #5a3fa0;
+      --color-biz-hover:      #432e7a;
+      --color-biz-highlight:  #e0d9f5;
+      --radius-sm: 0.375rem; --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;  --radius-xl: 1rem; --radius-full: 9999px;
+      --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
+      --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.09);
+      --shadow-lg: 0 12px 32px oklch(0.2 0.01 80 / 0.13);
+      --font-display: 'Cabinet Grotesk', 'Georgia', serif;
+      --font-body: 'Satoshi', 'Helvetica Neue', sans-serif;
+      --text-xs:   clamp(0.75rem,  0.7rem + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+      --text-lg:   clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl:   clamp(1.5rem,   1.2rem + 1.25vw, 2.25rem);
+      --text-2xl:  clamp(2rem,     1.2rem + 2.5vw, 3.5rem);
+      --text-hero: clamp(2.5rem,   1rem + 4vw, 4.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem;
+      --space-4: 1rem;    --space-5: 1.25rem; --space-6: 1.5rem;
+      --space-8: 2rem;    --space-10: 2.5rem; --space-12: 3rem;
+      --space-16: 4rem;   --space-20: 5rem;   --space-24: 6rem;
+      --content-default: 960px;
+      --content-narrow: 640px;
+      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --color-bg:             #141312;
+      --color-surface:        #1a1917;
+      --color-surface-2:      #201f1d;
+      --color-surface-offset: #1d1c1a;
+      --color-divider:        #252320;
+      --color-border:         #343230;
+      --color-text:           #d4d3d0;
+      --color-text-muted:     #797876;
+      --color-text-faint:     #4f4e4c;
+      --color-primary:        #4f98a3;
+      --color-primary-hover:  #6db5bf;
+      --color-primary-highlight: #1e3030;
+      --color-gold:           #e8af34;
+      --color-biz:            #9c7fe0;
+      --color-biz-hover:      #b89fe8;
+      --color-biz-highlight:  #2a2040;
+      --shadow-sm: 0 1px 3px oklch(0 0 0 / 0.25);
+      --shadow-md: 0 4px 14px oklch(0 0 0 / 0.35);
+      --shadow-lg: 0 12px 36px oklch(0 0 0 / 0.45);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --color-bg:#141312; --color-surface:#1a1917; --color-surface-2:#201f1d;
+        --color-surface-offset:#1d1c1a; --color-divider:#252320; --color-border:#343230;
+        --color-text:#d4d3d0; --color-text-muted:#797876; --color-text-faint:#4f4e4c;
+        --color-primary:#4f98a3; --color-primary-hover:#6db5bf; --color-primary-highlight:#1e3030;
+        --color-gold:#e8af34; --color-biz:#9c7fe0; --color-biz-hover:#b89fe8;
+        --color-biz-highlight:#2a2040;
+        --shadow-sm:0 1px 3px oklch(0 0 0/.25); --shadow-md:0 4px 14px oklch(0 0 0/.35); --shadow-lg:0 12px 36px oklch(0 0 0/.45);
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; scroll-padding-top: 4rem; }
+    body { font-family: var(--font-body); font-size: var(--text-base); color: var(--color-text); background: var(--color-bg); min-height: 100dvh; line-height: 1.6; }
+    img, picture, svg { display: block; max-width: 100%; }
+    a, button { transition: color var(--transition), background var(--transition), box-shadow var(--transition), border-color var(--transition), transform var(--transition); }
+    button { cursor: pointer; background: none; border: none; font: inherit; }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+
+    .container { max-width: var(--content-default); margin-inline: auto; padding-inline: var(--space-6); }
+    .container--narrow { max-width: var(--content-narrow); margin-inline: auto; padding-inline: var(--space-6); }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 100;
+      background: color-mix(in oklab, var(--color-bg) 88%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid oklch(from var(--color-text) l c h / 0.08);
+      padding: var(--space-4) 0;
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .logo { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; color: var(--color-text); }
+    .logo-icon { width: 36px; height: 36px; flex-shrink: 0; }
+    .logo-text { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 900; letter-spacing: -0.02em; }
+    .header-nav { display: flex; align-items: center; gap: var(--space-6); }
+    .header-nav a { font-size: var(--text-sm); font-weight: 500; color: var(--color-text-muted); text-decoration: none; }
+    .header-nav a:hover { color: var(--color-text); }
+    .theme-toggle {
+      width: 40px; height: 40px; display: grid; place-items: center;
+      border-radius: var(--radius-full); color: var(--color-text-muted);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.1);
+    }
+    .theme-toggle:hover { color: var(--color-text); background: var(--color-surface-offset); }
+
+    /* Hero */
+    .hero { padding: clamp(var(--space-16), 10vw, var(--space-24)) 0 clamp(var(--space-10), 6vw, var(--space-16)); text-align: center; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: var(--color-primary-highlight); color: var(--color-primary);
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); margin-bottom: var(--space-6);
+    }
+    .hero-title {
+      font-family: var(--font-display); font-size: var(--text-hero); font-weight: 900;
+      line-height: 1.08; letter-spacing: -0.03em; color: var(--color-text);
+      margin-bottom: var(--space-5); max-width: 14ch; margin-inline: auto;
+    }
+    .hero-title span { color: var(--color-primary); }
+    .hero-sub { font-size: var(--text-lg); color: var(--color-text-muted); max-width: 52ch; margin-inline: auto; line-height: 1.55; }
+    .hero-note { margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-text-faint); }
+    .hero-jumps { margin-top: var(--space-8); display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+    .jump-btn {
+      font-size: var(--text-sm); font-weight: 600; padding: var(--space-2) var(--space-5);
+      border-radius: var(--radius-full); text-decoration: none;
+      border: 1.5px solid oklch(from var(--color-text) l c h / 0.15);
+      color: var(--color-text-muted);
+    }
+    .jump-btn:hover { color: var(--color-text); background: var(--color-surface-offset); border-color: oklch(from var(--color-text) l c h / 0.25); }
+    .jump-btn.primary { background: var(--color-primary); color: #fff; border-color: transparent; }
+    .jump-btn.primary:hover { background: var(--color-primary-hover); }
+
+    .divider { border: none; border-top: 1px solid var(--color-divider); margin: 0; }
+
+    /* Sections */
+    .cards-section { padding: clamp(var(--space-10), 7vw, var(--space-20)) 0; }
+    .biz-section { padding: clamp(var(--space-10), 7vw, var(--space-20)) 0; background: var(--color-surface); border-top: 1px solid var(--color-divider); }
+
+    .section-header { margin-bottom: var(--space-8); }
+    .section-eyebrow {
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--color-text-faint); display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-3);
+    }
+    .section-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--color-divider); }
+    .section-title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+    .section-sub { font-size: var(--text-sm); color: var(--color-text-muted); margin-top: var(--space-2); max-width: 56ch; }
+
+    .section-eyebrow.biz { color: var(--color-biz); }
+    .section-eyebrow.biz::after { background: color-mix(in oklab, var(--color-biz) 25%, var(--color-divider)); }
+
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: var(--space-6); }
+
+    /* Card */
+    .card {
+      background: var(--color-surface-2); border: 1px solid oklch(from var(--color-text) l c h / 0.09);
+      border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition), transform var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .card-banner { height: 8px; }
+    .card-body { padding: var(--space-6); flex: 1; display: flex; flex-direction: column; gap: var(--space-4); }
+    .card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); }
+    .card-issuer { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-faint); }
+    .card-name { font-family: var(--font-display); font-size: var(--text-lg); font-weight: 900; line-height: 1.15; letter-spacing: -0.01em; color: var(--color-text); margin-top: var(--space-1); }
+    .card-network { font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.04em; color: var(--color-text-muted); background: var(--color-surface-offset); border-radius: var(--radius-sm); padding: var(--space-1) var(--space-2); flex-shrink: 0; margin-top: var(--space-1); }
+    .card-bonus { background: color-mix(in oklab, var(--color-gold) 12%, var(--color-surface)); border: 1px solid color-mix(in oklab, var(--color-gold) 25%, transparent); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); }
+    .bonus-label { font-size: var(--text-xs); font-weight: 700; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.06em; }
+    .bonus-value { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 900; color: var(--color-text); line-height: 1.1; margin-top: var(--space-1); }
+    .bonus-sub { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: 2px; }
+    .card-perks { list-style: none; display: flex; flex-direction: column; gap: var(--space-2); flex: 1; }
+    .card-perks li { font-size: var(--text-sm); color: var(--color-text-muted); display: flex; align-items: flex-start; gap: var(--space-2); }
+    .card-perks li::before { content: '✓'; color: var(--color-primary); font-weight: 700; font-size: 0.85em; flex-shrink: 0; margin-top: 2px; }
+    .biz-section .card-perks li::before { color: var(--color-biz); }
+    .card-fee { font-size: var(--text-xs); color: var(--color-text-faint); padding-top: var(--space-3); border-top: 1px solid oklch(from var(--color-text) l c h / 0.07); }
+    .card-cta {
+      display: block; width: 100%; background: var(--color-primary); color: #fff;
+      font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.02em;
+      padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg);
+      text-align: center; text-decoration: none; margin-top: var(--space-4);
+    }
+    .card-cta:hover { background: var(--color-primary-hover); color: #fff; }
+    .card-cta:active { transform: scale(0.98); }
+    .card-cta.biz { background: var(--color-biz); }
+    .card-cta.biz:hover { background: var(--color-biz-hover); }
+
+    /* Biz card surface differs slightly */
+    .biz-section .card { background: var(--color-surface-2); }
+
+    /* How It Works */
+    .how-section { padding: clamp(var(--space-10), 7vw, var(--space-20)) 0; border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); }
+    .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-8); margin-top: var(--space-10); text-align: center; }
+    .how-step-num { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 900; color: transparent; -webkit-text-stroke: 2px var(--color-primary); line-height: 1; margin-bottom: var(--space-3); }
+    .how-step-title { font-size: var(--text-base); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-2); }
+    .how-step-body { font-size: var(--text-sm); color: var(--color-text-muted); max-width: 28ch; margin-inline: auto; }
+
+    /* Footer */
+    .site-footer { padding: var(--space-12) 0 var(--space-8); border-top: 1px solid var(--color-divider); }
+    .footer-inner { display: flex; flex-direction: column; gap: var(--space-4); align-items: center; text-align: center; }
+    .footer-logo { font-family: var(--font-display); font-size: var(--text-base); font-weight: 900; color: var(--color-text-muted); }
+    .footer-disclaimer { font-size: var(--text-xs); color: var(--color-text-faint); max-width: 60ch; line-height: 1.6; }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero { text-align: left; }
+      .hero-title { margin-inline: 0; }
+      .hero-sub { margin-inline: 0; }
+      .hero-jumps { justify-content: flex-start; }
+      .header-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="CardPicks home">
+        <svg class="logo-icon" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+          <rect x="2" y="7" width="32" height="22" rx="4" fill="var(--color-primary)" opacity="0.15"/>
+          <rect x="2" y="7" width="32" height="22" rx="4" stroke="var(--color-primary)" stroke-width="2"/>
+          <rect x="2" y="14" width="32" height="4" fill="var(--color-primary)" opacity="0.35"/>
+          <circle cx="26" cy="24" r="5" fill="var(--color-primary)"/>
+          <path d="M23.5 24l1.5 1.5L28.5 22" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-text">CardPicks</span>
+      </a>
+      <nav class="header-nav" aria-label="Page sections">
+        <a href="#personal">Personal</a>
+        <a href="#business">Business</a>
+      </nav>
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container--narrow">
+    <div class="hero-badge">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><polygon points="6,1 7.5,4.5 11,5 8.5,7.5 9,11 6,9.5 3,11 3.5,7.5 1,5 4.5,4.5"/></svg>
+      Referral Links — We Both Win
+    </div>
+    <h1 class="hero-title">Earn more <span>points</span> from the start</h1>
+    <p class="hero-sub">Sign up through my referral links. You get a great welcome bonus — and so do I. No extra cost to you.</p>
+    <p class="hero-note">These are the same offers available publicly. Bonuses subject to change — verify before applying.</p>
+    <div class="hero-jumps">
+      <a href="#personal" class="jump-btn primary">Personal Cards</a>
+      <a href="#business" class="jump-btn">Business Cards</a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- Personal Cards -->
+<section class="cards-section" id="personal">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow">Personal Cards</p>
+      <h2 class="section-title">Top picks for everyday spending</h2>
+      <p class="section-sub">Great welcome bonuses and solid ongoing rewards for personal use.</p>
+    </div>
+    <div class="cards-grid">
+
+      <!-- Chase Sapphire Preferred -->
+      <div class="card">
+        <div class="card-banner" style="background: linear-gradient(90deg, #1a4a7a, #2d7dd2);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div>
+              <div class="card-issuer">Chase</div>
+              <div class="card-name">Sapphire Preferred®</div>
+            </div>
+            <span class="card-network">Visa</span>
+          </div>
+          <div class="card-bonus">
+            <div class="bonus-label">Welcome Bonus</div>
+            <div class="bonus-value">60,000 pts</div>
+            <div class="bonus-sub">After $4,000 spend in first 3 months</div>
+          </div>
+          <ul class="card-perks">
+            <li>3x on dining &amp; online grocery</li>
+            <li>2x on all other travel purchases</li>
+            <li>25% more value redeeming via Chase Travel</li>
+            <li>Transfer to 14 airline &amp; hotel partners</li>
+          </ul>
+          <div class="card-fee">Annual fee: $95</div>
+          <a href="YOUR_REFERRAL_LINK_HERE" class="card-cta" target="_blank" rel="noopener noreferrer">Apply via My Link →</a>
+        </div>
+      </div>
+
+      <!-- Amex Gold -->
+      <div class="card">
+        <div class="card-banner" style="background: linear-gradient(90deg, #a07700, #d4a820);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div>
+              <div class="card-issuer">American Express</div>
+              <div class="card-name">Gold Card</div>
+            </div>
+            <span class="card-network">Amex</span>
+          </div>
+          <div class="card-bonus">
+            <div class="bonus-label">Welcome Bonus</div>
+            <div class="bonus-value">60,000 pts</div>
+            <div class="bonus-sub">After $6,000 spend in first 6 months</div>
+          </div>
+          <ul class="card-perks">
+            <li>4x Membership Rewards at restaurants</li>
+            <li>4x at U.S. supermarkets (up to $25K/yr)</li>
+            <li>$120 dining credit annually</li>
+            <li>$120 Uber Cash annually</li>
+          </ul>
+          <div class="card-fee">Annual fee: $325</div>
+          <a href="YOUR_REFERRAL_LINK_HERE" class="card-cta" target="_blank" rel="noopener noreferrer">Apply via My Link →</a>
+        </div>
+      </div>
+
+      <!-- Capital One Venture X -->
+      <div class="card">
+        <div class="card-banner" style="background: linear-gradient(90deg, #6b2fa0, #9b5fd9);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div>
+              <div class="card-issuer">Capital One</div>
+              <div class="card-name">Venture X Rewards</div>
+            </div>
+            <span class="card-network">Visa</span>
+          </div>
+          <div class="card-bonus">
+            <div class="bonus-label">Welcome Bonus</div>
+            <div class="bonus-value">75,000 mi</div>
+            <div class="bonus-sub">After $4,000 spend in first 3 months</div>
+          </div>
+          <ul class="card-perks">
+            <li>10x miles on hotels &amp; rental cars via C1 Travel</li>
+            <li>5x on flights booked via Capital One Travel</li>
+            <li>$300 annual travel credit</li>
+            <li>Priority Pass lounge access</li>
+          </ul>
+          <div class="card-fee">Annual fee: $395</div>
+          <a href="YOUR_REFERRAL_LINK_HERE" class="card-cta" target="_blank" rel="noopener noreferrer">Apply via My Link →</a>
+        </div>
+      </div>
+
+      <!-- Citi Strata Premier -->
+      <div class="card">
+        <div class="card-banner" style="background: linear-gradient(90deg, #0e5282, #0f8acf);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div>
+              <div class="card-issuer">Citi</div>
+              <div class="card-name">Strata Premier℠ Card</div>
+            </div>
+            <span class="card-network">Mastercard</span>
+          </div>
+          <div class="card-bonus">
+            <div class="bonus-label">Welcome Bonus</div>
+            <div class="bonus-value">75,000 Points</div>
+            <div class="bonus-sub">After $4,000 spend in first 3 months</div>
+          </div>
+          <ul class="card-perks">
+            <li>3x points on hotels, air travel, and restaurants</li>
+            <li>3x points on supermarkets and gas stations</li>
+            <li>1x on all other purchases</li>
+            <li>Transfer points to airline and hotel partners</li>
+          </ul>
+          <div class="card-fee">Annual fee: $95</div>
+          <a href="YOUR_REFERRAL_LINK_HERE" class="card-cta" target="_blank" rel="noopener noreferrer">Apply via My Link →</a>
+        </div>
+      </div>
+
+      <!-- Chase Freedom Unlimited -->
+      <div class="card">
+        <div class="card-banner" style="background: linear-gradient(90deg, #01696f, #2aabb3);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div>
+              <div class="card-issuer">Chase</div>
+              <div class="card-name">Freedom Unlimited®</div>
+            </div>
+            <span class="card-network">Visa</span>
+          </div>
+          <div class="card-bonus">
+            <div class="bonus-label">Welcome Bonus</div>
+            <div class="bonus-value">$200 Cash</div>
+            <div class="bonus-sub">After $500 spend in first 3 months</div>
+          </div>
+          <ul class="card-perks">
+            <li>1.5% cash back on all purchases — no limits</li>
+            <li>5% on travel via Chase Travel</li>
+            <li>3% on dining &amp; drugstores</li>
+            <li>No annual fee</li>
+          </ul>
+          <div class="card-fee">Annual fee: $0</div>
+          <a href="YOUR_REFERRAL_LINK_HERE" class="card-cta" target="_blank" rel="noopener noreferrer">Apply via My Link →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Business Cards -->
+<section class="biz-section" id="business">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-eyebrow biz">Business Cards · Chase Ink</p>
+      <h2 class="section-title">Built for business spending</h2>
+      <p class="section-sub">Ink Preferred, Ink Cash, and Ink Unlimited — great for sole proprietors, freelancers, and side hustles.</p>
+    </div>
+    <div class="cards-grid">
+
+      <!-- Ink Business Preferred -->
+      <div class="card">
+        <div class="card-banner" style="background: linear-gradient(90deg, #1e3a6e, #2d6abf);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div>
+              <div class="card-issuer">Chase Ink</div>
+              <div class="card-name">Business Preferred®</div>
+            </div>
+            <span class="card-network">Visa</span>
+          </div>
+          <div class="card-bonus">
+            <div class="bonus-label">Welcome Bonus</div>
+            <div class="bonus-value">100,000 pts</div>
+            <div class="bonus-sub">After $8,000 spend in first 3 months</div>
+          </div>
+          <ul class="card-perks">
+            <li>3x on travel, shipping, ads &amp; internet/phone (up to $150K/yr)</li>
+            <li>Points transfer to 14 airline &amp; hotel partners</li>
+            <li>25% more value redeeming via Chase Travel</li>
+            <li>Cell phone protection up to $1,000</li>
+          </ul>
+          <div class="card-fee">Annual fee: $95</div>
+          <a href="YOUR_REFERRAL_LINK_HERE" class="card-cta biz" target="_blank" rel="noopener noreferrer">Apply via My Link →</a>
+        </div>
+      </div>
+
+      <!-- Ink Business Cash -->
+      <div class="card">
+        <div class="card-banner" style="background: linear-gradient(90deg, #1a5c1a, #2e9e2e);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div>
+              <div class="card-issuer">Chase Ink</div>
+              <div class="card-name">Business Cash®</div>
+            </div>
+            <span class="card-network">Visa</span>
+          </div>
+          <div class="card-bonus">
+            <div class="bonus-label">Welcome Bonus</div>
+            <div class="bonus-value">$750 Cash</div>
+            <div class="bonus-sub">After $6,000 spend in first 3 months</div>
+          </div>
+          <ul class="card-perks">
+            <li>5% on office supplies &amp; internet/phone/cable (up to $25K/yr)</li>
+            <li>2% on gas &amp; dining (up to $25K/yr)</li>
+            <li>1% on all other purchases</li>
+            <li>No annual fee</li>
+          </ul>
+          <div class="card-fee">Annual fee: $0</div>
+          <a href="YOUR_REFERRAL_LINK_HERE" class="card-cta biz" target="_blank" rel="noopener noreferrer">Apply via My Link →</a>
+        </div>
+      </div>
+
+      <!-- Ink Business Unlimited -->
+      <div class="card">
+        <div class="card-banner" style="background: linear-gradient(90deg, #01696f, #2aabb3);"></div>
+        <div class="card-body">
+          <div class="card-header">
+            <div>
+              <div class="card-issuer">Chase Ink</div>
+              <div class="card-name">Business Unlimited®</div>
+            </div>
+            <span class="card-network">Visa</span>
+          </div>
+          <div class="card-bonus">
+            <div class="bonus-label">Welcome Bonus</div>
+            <div class="bonus-value">$750 Cash</div>
+            <div class="bonus-sub">After $6,000 spend in first 3 months</div>
+          </div>
+          <ul class="card-perks">
+            <li>Unlimited 1.5% cash back on every purchase</li>
+            <li>No category tracking needed</li>
+            <li>Employee cards at no extra cost</li>
+            <li>No annual fee</li>
+          </ul>
+          <div class="card-fee">Annual fee: $0</div>
+          <a href="YOUR_REFERRAL_LINK_HERE" class="card-cta biz" target="_blank" rel="noopener noreferrer">Apply via My Link →</a>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-section">
+  <div class="container">
+    <div class="section-header" style="text-align:center;">
+      <h2 class="section-title">How it works</h2>
+    </div>
+    <div class="how-grid">
+      <div>
+        <div class="how-step-num">01</div>
+        <div class="how-step-title">Pick a card</div>
+        <div class="how-step-body">Choose the card that fits your spending habits and goals.</div>
+      </div>
+      <div>
+        <div class="how-step-num">02</div>
+        <div class="how-step-title">Click my link</div>
+        <div class="how-step-body">Hit "Apply via My Link" — it takes you straight to the bank's official application.</div>
+      </div>
+      <div>
+        <div class="how-step-num">03</div>
+        <div class="how-step-title">Get approved</div>
+        <div class="how-step-body">Complete your application normally. The referral tracks automatically.</div>
+      </div>
+      <div>
+        <div class="how-step-num">04</div>
+        <div class="how-step-title">We both earn</div>
+        <div class="how-step-body">You earn your welcome bonus. I earn referral points. No extra cost to you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">CardPicks</div>
+      <p class="footer-disclaimer">
+        These are personal referral links. Bonus offers and terms are subject to change — always verify current details on the issuer's website before applying. This page does not constitute financial advice.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    const t = document.querySelector('[data-theme-toggle]');
+    const r = document.documentElement;
+    let d = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    r.setAttribute('data-theme', d);
+    const sun = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+    const moon = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+    function setIcon(){ t.innerHTML = d==='dark' ? sun : moon; }
+    setIcon();
+    t && t.addEventListener('click', ()=>{
+      d = d==='dark' ? 'light' : 'dark';
+      r.setAttribute('data-theme', d);
+      t.setAttribute('aria-label', 'Switch to '+(d==='dark'?'light':'dark')+' mode');
+      setIcon();
+    });
+  })();
+</script>
+
+</body>
+</html>
